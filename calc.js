@@ -17,9 +17,12 @@ function divide(a, b) {
     return a / b;
 };
 
+const mock_input_a = 8;
+
 module.exports = {
     add,
     subtract,
     multiply,
-    divide
+    divide,
+    mock_input_a
 };

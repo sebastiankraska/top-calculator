@@ -36,5 +36,5 @@ test('divide 10 / 2 to equal 5', () => {
 });
 
 test('check if mocking variable input_a is assigned 8', () => {
-    expect(mock_input_a).toBe(8);
+    expect(calc.mock_input_a).toBe(8);
 });
