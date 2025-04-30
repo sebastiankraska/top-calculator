@@ -34,3 +34,7 @@ test('error on division by zero', () => {
 test('divide 10 / 2 to equal 5', () => {
     expect(calc.divide(10, 2)).toBe(5);
 });
+
+test('check if mocking variable input_a is assigned 8', () => {
+    expect(mock_input_a).toBe(8);
+});
