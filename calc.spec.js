@@ -1,5 +1,4 @@
 const calc = require('./calc');
-const drinkFlavor = require('./calc');
 
 test('adds 1 + 1 to equal 2', () => {
     expect(calc.add(1, 1)).toBe(2);
