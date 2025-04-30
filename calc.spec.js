@@ -31,3 +31,7 @@ test('error on division by zero', () => {
     expect(() => {
         calc.divide(1,0);
     }).toThrow("Cannot divide by zero")});
+
+test('divide 10 / 2 to equal 5', () => {
+    expect(calc.divide(10, 2)).toBe(5);
+});
