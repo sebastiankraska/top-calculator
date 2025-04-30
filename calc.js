@@ -35,6 +35,9 @@ function operate(a,b,operator) {
     if (operator == '*') {
         return multiply(a,b)
     }
+    if (operator == '/') {
+        return divide(a,b)
+    }
 };
 
 module.exports = {
