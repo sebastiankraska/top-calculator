@@ -16,17 +16,9 @@ function divide(a, b) {
     }
 };
 
-function drinkFlavor(flavor) {
-    if (flavor === 'octopus') {
-      throw new DisgustingFlavorError('yuck, octopus flavor');
-    }
-    // Do some other stuff
-  };
-
 module.exports = {
     add,
     subtract,
     multiply,
-    divide,
-    drinkFlavor
+    divide
 };
