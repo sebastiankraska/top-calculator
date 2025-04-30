@@ -21,6 +21,13 @@ const mock_input_a = 8;
 const mock_input_b = 2;
 const mock_input_operator_add = '+';
 
+function operate(a,b,operator) {
+    // let internaloperator = '';
+    if (operator == '+') {
+        return add(a,b)
+    }
+};
+
 module.exports = {
     add,
     subtract,
@@ -28,5 +35,6 @@ module.exports = {
     divide,
     mock_input_a,
     mock_input_b,
-    mock_input_operator_add
+    mock_input_operator_add,
+    operate
 };

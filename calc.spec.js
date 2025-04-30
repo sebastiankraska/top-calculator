@@ -47,6 +47,10 @@ test('check if mocking variable mock_input_operator_add is equal "+"', () => {
     expect(calc.mock_input_operator_add).toBe('+');
 });
 
-test('check if operate functions returns 10 when given mock operators', () => {
+test('operate with add: check if operate functions returns 10 when given mock operators', () => {
     expect(calc.operate(calc.mock_input_a, calc.mock_input_b, calc.mock_input_operator_add)).toBe(10);
+});
+
+test('operate with subtract: check if operate functions returns 6 when given mock operators', () => {
+    expect(calc.operate(calc.mock_input_a, calc.mock_input_b, calc.mock_input_operator_subtract)).toBe(6);
 });
