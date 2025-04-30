@@ -21,6 +21,7 @@ const mock_input_a = 8;
 const mock_input_b = 2;
 const mock_input_operator_add = '+';
 const mock_input_operator_subtract = '-';
+const mock_input_operator_multiply = '*';
 
 function operate(a,b,operator) {
     // let internaloperator = '';
@@ -30,7 +31,9 @@ function operate(a,b,operator) {
     if (operator == '-') {
         return subtract(a,b)
     }
-
+    if (operator == '*') {
+        return multiply(a,b)
+    }
 };
 
 module.exports = {
@@ -42,5 +45,6 @@ module.exports = {
     mock_input_b,
     mock_input_operator_add,
     operate,
-    mock_input_operator_subtract
+    mock_input_operator_subtract,
+    mock_input_operator_multiply
 };
