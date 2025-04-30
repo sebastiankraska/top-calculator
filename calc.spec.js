@@ -8,6 +8,10 @@ test('subtracts 1 - 1 to equal 0', () => {
     expect(calc.subtract(1, 1)).toBe(0);
 });
 
+test('error on division by zero', () => {
+    expect(calc.divide(1, 0)).toThrow("Cannot divide by zero");
+})
+
 test('multiply 2 x 3 to equal 6', () => {
     expect(calc.multiply(2, 3)).toBe(6);
 })
