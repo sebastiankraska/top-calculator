@@ -18,11 +18,15 @@ function divide(a, b) {
 };
 
 const mock_input_a = 8;
+const mock_input_b = 2;
+const mock_input_operator_add = '+';
 
 module.exports = {
     add,
     subtract,
     multiply,
     divide,
-    mock_input_a
+    mock_input_a,
+    mock_input_b,
+    mock_input_operator_add
 };
