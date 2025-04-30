@@ -54,3 +54,7 @@ test('operate with add: check if operate functions returns 10 when given mock op
 test('operate with subtract: check if operate functions returns 6 when given mock operators', () => {
     expect(calc.operate(calc.mock_input_a, calc.mock_input_b, calc.mock_input_operator_subtract)).toBe(6);
 });
+
+test('operate with multiply: check if operate functions returns 16 when given mock operators', () => {
+    expect(calc.operate(calc.mock_input_a, calc.mock_input_b, calc.mock_input_operator_multiply)).toBe(6);
+});

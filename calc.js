@@ -30,6 +30,7 @@ function operate(a,b,operator) {
     if (operator == '-') {
         return subtract(a,b)
     }
+
 };
 
 module.exports = {
