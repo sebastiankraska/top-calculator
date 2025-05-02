@@ -26,16 +26,17 @@ const mock_input_operator_divide = '/';
 
 function operate(a,b,operator) {
     // let internaloperator = '';
-    if (operator == '+') {
+    if (operator == 'add') {
+        console.log("Compute Add was executed")
         return add(a,b)
     }
-    if (operator == '-') {
+    if (operator == 'subtract') {
         return subtract(a,b)
     }
-    if (operator == '*') {
+    if (operator == 'multiply') {
         return multiply(a,b)
     }
-    if (operator == '/') {
+    if (operator == 'divide') {
         return divide(a,b)
     }
 };
@@ -58,13 +59,15 @@ buttonarea.addEventListener('click', (event) => {
         inputoperator = target.id;
         // console.log("inputoperator value is now " + inputoperator);
         if (!firstnumber) {
-            firstnumber = inputnumbers.join('');
-            console.log("Firstnumber " + firstnumber)
+            firstnumber = Number(inputnumbers.join(''));
+            console.log("Firstnumber " + firstnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
         } else {
-            secondnumber = inputnumbers.join('');
-            console.log("Secondnumber: " + secondnumber)
+            secondnumber = Number(inputnumbers.join(''));
+            console.log("Secondnumber: " + secondnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
+            let result = operate(firstnumber, secondnumber, inputoperator);
+            console.log("RESULT:" + result)
         }
     } else {
         switch(target.id) {
