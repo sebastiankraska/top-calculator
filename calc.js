@@ -40,6 +40,21 @@ function operate(a,b,operator) {
     }
 };
 
+let buttonarea = document.querySelector('#button-area');
+
+buttonarea.addEventListener('click', (event) => {
+    let target = event.target;
+
+    switch(target.id) {
+        case 'one':
+            console.log('1 was clicked');
+            break;
+        case 'two':
+            console.log('2 was clicked');
+            break;
+    }
+})
+
 // Pseudocode 1 (Eventlistener)
 // Listen to all clicks
 // find out wich element was clicked (inside event)
