@@ -47,7 +47,7 @@ let inputnumbers = [];
 buttonarea.addEventListener('click', (event) => {
     let target = event.target;
     if (target.classList.contains('digit')) {
-        console.log("A digit was clicked");
+        console.log(target.id + " (a digit) was clicked");
         inputnumbers.push(target.id);
         console.log(inputnumbers);
     } else {
