@@ -69,21 +69,33 @@ buttonarea.addEventListener('click', (event) => {
             resultspan.textContent = result;
             firstnumber = result;
             console.log("RESULT:" + result)
-        } else {
+        }
+        console.log(target.id + " (an operator) was clicked");
+    inputoperator = target.id;
+    // console.log("inputoperator value is now " + inputoperator);
+    } else {
         switch(target.id) {
             case 'equals':
                 console.log('equals was clicked');
+
+                if ((firstnumber) && (inputnumbers.length > 0)) {
+                    secondnumber = Number(inputnumbers.join(''));
+                    console.log("Secondnumber: " + secondnumber + " a " + typeof(firstnumber))
+                    inputnumbers = [];
+                    let result = operate(firstnumber, secondnumber, inputoperator);
+                    resultspan.textContent = result;
+                    firstnumber = result;
+                    console.log("RESULT:" + result)
+                };
                 break;
             case 'clear':
                 console.log('clear was clicked');
                 break;
         }
     }
-    console.log(target.id + " (an operator) was clicked");
-    inputoperator = target.id;
-    // console.log("inputoperator value is now " + inputoperator);
+
 }
-});
+);
 
 // Pseudocode 1 (Eventlistener)
 // Listen to all clicks
