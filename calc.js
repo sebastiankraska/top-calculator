@@ -42,11 +42,13 @@ function operate(a,b,operator) {
 };
 
 let buttonarea = document.querySelector('#button-area');
+let resultspan = document.querySelector('#resultspan')
 
 let inputnumbers = [];
 let inputoperator = "";
 let firstnumber;
 let secondnumber = "";
+
 
 buttonarea.addEventListener('click', (event) => {
     let target = event.target;
@@ -64,6 +66,7 @@ buttonarea.addEventListener('click', (event) => {
             console.log("Secondnumber: " + secondnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
             let result = operate(firstnumber, secondnumber, inputoperator);
+            resultspan.textContent = result;
             firstnumber = result;
             console.log("RESULT:" + result)
         } else {
