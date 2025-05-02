@@ -43,6 +43,7 @@ function operate(a,b,operator) {
 let buttonarea = document.querySelector('#button-area');
 
 let inputnumbers = [];
+let inputoperator = "";
 
 buttonarea.addEventListener('click', (event) => {
     let target = event.target;
@@ -50,11 +51,12 @@ buttonarea.addEventListener('click', (event) => {
         console.log(target.id + " (a digit) was clicked");
         inputnumbers.push(target.id);
         console.log(inputnumbers);
+    } else if (target.classList.contains('operator')) {
+        console.log(target.id + " (an operator) was clicked");
+        inputoperator = target.id;
+        // console.log("inputoperator value is now " + inputoperator);
     } else {
         switch(target.id) {
-            case 'plus':
-                console.log('plus was clicked');
-                break;
             case 'equals':
                 console.log('equals was clicked');
                 break;
@@ -63,9 +65,7 @@ buttonarea.addEventListener('click', (event) => {
                 break;
         }
     }
-
-
-})
+});
 
 // Pseudocode 1 (Eventlistener)
 // Listen to all clicks
