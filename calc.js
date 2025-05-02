@@ -90,6 +90,12 @@ buttonarea.addEventListener('click', (event) => {
                 break;
             case 'clear':
                 console.log('clear was clicked');
+                inputnumbers = [];
+                inputoperator = "";
+                firstnumber = "";
+                secondnumber = "";
+                result = 0.0;
+                resultspan.textContent = result;
                 break;
         }
     }
