@@ -44,12 +44,14 @@ let buttonarea = document.querySelector('#button-area');
 
 buttonarea.addEventListener('click', (event) => {
     let target = event.target;
-
+    if (target.classList.contains('digit')) {
+        console.log("A digit was clicked");
+    }
     switch(target.id) {
-        case 'one':
+        case '1':
             console.log('1 was clicked');
             break;
-        case 'two':
+        case '2':
             console.log('2 was clicked');
             break;
     }
