@@ -55,21 +55,18 @@ buttonarea.addEventListener('click', (event) => {
         inputnumbers.push(target.id);
         console.log(inputnumbers);
     } else if (target.classList.contains('operator')) {
-        console.log(target.id + " (an operator) was clicked");
-        inputoperator = target.id;
-        // console.log("inputoperator value is now " + inputoperator);
         if (!firstnumber) {
             firstnumber = Number(inputnumbers.join(''));
             console.log("Firstnumber " + firstnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
-        } else {
+        } else if (inputnumbers.length > 0) {
             secondnumber = Number(inputnumbers.join(''));
             console.log("Secondnumber: " + secondnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
             let result = operate(firstnumber, secondnumber, inputoperator);
+            firstnumber = result;
             console.log("RESULT:" + result)
-        }
-    } else {
+        } else {
         switch(target.id) {
             case 'equals':
                 console.log('equals was clicked');
@@ -79,6 +76,10 @@ buttonarea.addEventListener('click', (event) => {
                 break;
         }
     }
+    console.log(target.id + " (an operator) was clicked");
+    inputoperator = target.id;
+    // console.log("inputoperator value is now " + inputoperator);
+}
 });
 
 // Pseudocode 1 (Eventlistener)
