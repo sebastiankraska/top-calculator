@@ -42,10 +42,14 @@ function operate(a,b,operator) {
 
 let buttonarea = document.querySelector('#button-area');
 
+let inputnumbers = [];
+
 buttonarea.addEventListener('click', (event) => {
     let target = event.target;
     if (target.classList.contains('digit')) {
         console.log("A digit was clicked");
+        inputnumbers.push(target.id);
+        console.log(inputnumbers);
     }
     switch(target.id) {
         case '1':
