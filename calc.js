@@ -44,6 +44,8 @@ let buttonarea = document.querySelector('#button-area');
 
 let inputnumbers = [];
 let inputoperator = "";
+let firstnumber;
+let secondnumber = "";
 
 buttonarea.addEventListener('click', (event) => {
     let target = event.target;
@@ -55,6 +57,15 @@ buttonarea.addEventListener('click', (event) => {
         console.log(target.id + " (an operator) was clicked");
         inputoperator = target.id;
         // console.log("inputoperator value is now " + inputoperator);
+        if (!firstnumber) {
+            firstnumber = inputnumbers.join('');
+            console.log("Firstnumber " + firstnumber)
+            inputnumbers = [];
+        } else {
+            secondnumber = inputnumbers.join('');
+            console.log("Secondnumber: " + secondnumber)
+            inputnumbers = [];
+        }
     } else {
         switch(target.id) {
             case 'equals':
