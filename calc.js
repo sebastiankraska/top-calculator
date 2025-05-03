@@ -12,6 +12,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
+        return "LOL";
         throw new Error("Cannot divide by zero");
     }
     return a / b;
@@ -55,6 +56,10 @@ let secondnumber = "";
 buttonarea.addEventListener('click', (event) => {
     let target = event.target;
     if (target.classList.contains('digit')) {
+        // Remove 'active' class from all operator buttons
+        operatorbuttons.forEach(button => {
+            button.classList.remove('active');
+        });
         console.log(target.id + " (a digit) was clicked");
         if ((inputoperator) || !firstnumber) {
             inputnumbers.push(target.id);
@@ -64,8 +69,6 @@ buttonarea.addEventListener('click', (event) => {
             console.log("WARNING: Did not add the digit to inputnumbers")
         }
     } else if (target.classList.contains('operator')) {
-        console.log(target.id + " (an operator) was clicked");
-        inputoperator = target.id;
 
         // Remove 'active' class from all operator buttons
         operatorbuttons.forEach(button => {
@@ -93,6 +96,9 @@ buttonarea.addEventListener('click', (event) => {
 
             console.log("RESULT:" + result)
         }
+        console.log(target.id + " (an operator) was clicked");
+        inputoperator = target.id;
+
     } else {
         switch(target.id) {
             case 'equals':
