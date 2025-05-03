@@ -43,6 +43,8 @@ function operate(a,b,operator) {
 
 let buttonarea = document.querySelector('#button-area');
 let resultspan = document.querySelector('#resultspan')
+let operatorbuttons = document.querySelectorAll('.operator')
+
 
 let inputnumbers = [];
 let inputoperator = "";
@@ -54,19 +56,23 @@ buttonarea.addEventListener('click', (event) => {
     let target = event.target;
     if (target.classList.contains('digit')) {
         console.log(target.id + " (a digit) was clicked");
-        if ((inputoperator) || !firstnumber) {
+        // if ((inputoperator) || firstnumber) {
             inputnumbers.push(target.id);
             console.log(inputnumbers);
             console.log("Added digit to inputnumbers")
-        } else {
-            console.log("WARNING: Did not add the digit to inputnumbers")
-        }
+        // } else {
+        //     console.log("WARNING: Did not add the digit to inputnumbers")
+        // }
     } else if (target.classList.contains('operator')) {
+        console.log(target.id + " (an operator) was clicked");
+        inputoperator = target.id;  
         if (!firstnumber) {
             firstnumber = Number(inputnumbers.join(''));
             console.log("Firstnumber " + firstnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
-            inputoperator = "";
+            // inputoperator = "";
+            console.log("Inputoperator is " + inputoperator)
+
         } else if ((inputnumbers.length > 0) && inputoperator) {
             secondnumber = Number(inputnumbers.join(''));
             console.log("Secondnumber: " + secondnumber + " a " + typeof(firstnumber))
@@ -74,16 +80,16 @@ buttonarea.addEventListener('click', (event) => {
             let result = operate(firstnumber, secondnumber, inputoperator);
             resultspan.textContent = result;
             firstnumber = result;
-            inputoperator = "";
+            // inputoperator = "";
             console.log("RESULT:" + result)
         }
-        console.log(target.id + " (an operator) was clicked");
-    inputoperator = target.id;
-    // console.log("inputoperator value is now " + inputoperator);
     } else {
         switch(target.id) {
             case 'equals':
                 console.log('equals was clicked');
+                console.log('firstnumber' + firstnumber);
+                console.log('inputnumbers.length' + inputnumbers.length);
+                console.log('inputoperator' + inputoperator);
 
                 if ((firstnumber) && (inputnumbers.length > 0) && inputoperator) {
                     secondnumber = Number(inputnumbers.join(''));
