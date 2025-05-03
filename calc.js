@@ -61,13 +61,15 @@ buttonarea.addEventListener('click', (event) => {
             firstnumber = Number(inputnumbers.join(''));
             console.log("Firstnumber " + firstnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
-        } else if (inputnumbers.length > 0) {
+            inputoperator = "";
+        } else if ((inputnumbers.length > 0) && inputoperator) {
             secondnumber = Number(inputnumbers.join(''));
             console.log("Secondnumber: " + secondnumber + " a " + typeof(firstnumber))
             inputnumbers = [];
             let result = operate(firstnumber, secondnumber, inputoperator);
             resultspan.textContent = result;
             firstnumber = result;
+            inputoperator = "";
             console.log("RESULT:" + result)
         }
         console.log(target.id + " (an operator) was clicked");
@@ -78,13 +80,14 @@ buttonarea.addEventListener('click', (event) => {
             case 'equals':
                 console.log('equals was clicked');
 
-                if ((firstnumber) && (inputnumbers.length > 0)) {
+                if ((firstnumber) && (inputnumbers.length > 0) && inputoperator) {
                     secondnumber = Number(inputnumbers.join(''));
                     console.log("Secondnumber: " + secondnumber + " a " + typeof(firstnumber))
                     inputnumbers = [];
                     let result = operate(firstnumber, secondnumber, inputoperator);
                     resultspan.textContent = result;
                     firstnumber = result;
+                    inputoperator = "";
                     console.log("RESULT:" + result)
                 };
                 break;
