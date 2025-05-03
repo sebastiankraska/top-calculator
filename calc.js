@@ -56,16 +56,25 @@ buttonarea.addEventListener('click', (event) => {
     let target = event.target;
     if (target.classList.contains('digit')) {
         console.log(target.id + " (a digit) was clicked");
-        // if ((inputoperator) || firstnumber) {
+        if ((inputoperator) || !firstnumber) {
             inputnumbers.push(target.id);
             console.log(inputnumbers);
             console.log("Added digit to inputnumbers")
-        // } else {
-        //     console.log("WARNING: Did not add the digit to inputnumbers")
-        // }
+        } else {
+            console.log("WARNING: Did not add the digit to inputnumbers")
+        }
     } else if (target.classList.contains('operator')) {
         console.log(target.id + " (an operator) was clicked");
-        inputoperator = target.id;  
+        inputoperator = target.id;
+
+        // Remove 'active' class from all operator buttons
+        operatorbuttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // Add 'active' class to the clicked operator button
+        target.classList.add('active');
+
         if (!firstnumber) {
             firstnumber = Number(inputnumbers.join(''));
             console.log("Firstnumber " + firstnumber + " a " + typeof(firstnumber))
@@ -81,6 +90,7 @@ buttonarea.addEventListener('click', (event) => {
             resultspan.textContent = result;
             firstnumber = result;
             // inputoperator = "";
+
             console.log("RESULT:" + result)
         }
     } else {
@@ -99,6 +109,12 @@ buttonarea.addEventListener('click', (event) => {
                     resultspan.textContent = result;
                     firstnumber = result;
                     inputoperator = "";
+
+                    // Remove 'active' class from all operator buttons
+                    operatorbuttons.forEach(button => {
+                        button.classList.remove('active');
+                    });
+
                     console.log("RESULT:" + result)
                 };
                 break;
@@ -106,6 +122,10 @@ buttonarea.addEventListener('click', (event) => {
                 console.log('clear was clicked');
                 inputnumbers = [];
                 inputoperator = "";
+                // Remove 'active' class from all operator buttons
+                operatorbuttons.forEach(button => {
+                    button.classList.remove('active');
+                });
                 firstnumber = "";
                 secondnumber = "";
                 result = 0.0;
