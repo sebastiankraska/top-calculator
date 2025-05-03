@@ -54,8 +54,13 @@ buttonarea.addEventListener('click', (event) => {
     let target = event.target;
     if (target.classList.contains('digit')) {
         console.log(target.id + " (a digit) was clicked");
-        inputnumbers.push(target.id);
-        console.log(inputnumbers);
+        if ((inputoperator) || !firstnumber) {
+            inputnumbers.push(target.id);
+            console.log(inputnumbers);
+            console.log("Added digit to inputnumbers")
+        } else {
+            console.log("WARNING: Did not add the digit to inputnumbers")
+        }
     } else if (target.classList.contains('operator')) {
         if (!firstnumber) {
             firstnumber = Number(inputnumbers.join(''));
