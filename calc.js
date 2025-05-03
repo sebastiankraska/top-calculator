@@ -27,20 +27,30 @@ const mock_input_operator_divide = '/';
 
 function operate(a,b,operator) {
     // let internaloperator = '';
+    let result;
     if (operator == 'add') {
-        console.log("Compute Add was executed")
-        return add(a,b)
+        result = add(a, b);
+    } else if (operator == 'subtract') {
+        result = subtract(a, b);
+    } else if (operator == 'multiply') {
+        result = multiply(a, b);
+    } else if (operator == 'divide') {
+        result = divide(a, b);
     }
-    if (operator == 'subtract') {
-        return subtract(a,b)
+
+    // this preserves the "LOL" result (string) when dividing by zero 
+    if (typeof result == 'number') {
+        return roundToDecimal(result, 2);
+    } else {
+        return result;
     }
-    if (operator == 'multiply') {
-        return multiply(a,b)
-    }
-    if (operator == 'divide') {
-        return divide(a,b)
-    }
+    
 };
+
+function roundToDecimal(num, decimalPlaces) {
+    const factor = Math.pow(10, decimalPlaces);
+    return Math.round(num * factor) / factor;
+}
 
 let buttonarea = document.querySelector('#button-area');
 let resultspan = document.querySelector('#resultspan')
